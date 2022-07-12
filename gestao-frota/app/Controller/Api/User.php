@@ -21,7 +21,7 @@ class User extends Api{
         $paginaAtual = $queryParams['page'] ?? 1;
 
         $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
-        $results = EntityUser::getUsers(null, 'idUsuario ASC', $obPagination->getLimit());
+        $results = EntityUser::getUsers(null, 'id ASC', $obPagination->getLimit());
 
         while($obUser = $results->fetchObject(EntityUser::class)){
 

@@ -5,7 +5,7 @@ use \App\Controller\Api;
 //ROTA GET USUÁRIO (LISTAGEM TODOS USUARIOS)
 $obRouter->get('/api/v1/users', [
     'middlewares' => [
-        'api'
+        'api',
     ],
     function($request){
         return new Response(200, Api\User::getUsers($request), 'application/json');
@@ -36,7 +36,7 @@ $obRouter->post('/api/v1/users', [
 //ROTA PUT CADASTRO USUÁRIO (ALTERAR)
 $obRouter->put('/api/v1/users/{id}', [
     'middlewares' => [
-        'api',
+        'api'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR USUÁRIO
@@ -47,7 +47,7 @@ $obRouter->put('/api/v1/users/{id}', [
 //ROTA DELETE USUÁRIO (EXCLUIR)
 $obRouter->delete('/api/v1/users/{id}', [
     'middlewares' => [
-        'api',
+        'api'
     ],
     function($request, $id){
         return new Response(200, Api\User::setDeleteUser($request, $id), 'application/json');

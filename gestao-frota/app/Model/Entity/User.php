@@ -25,7 +25,7 @@ class User{
      *
      */
     public static function getUserByEmail($email){
-        return (new Database('usuario'))->select('emailUsuario = "'.$email.'"')->fetchObject(self::class);
+        return (new Database('usuario'))->select('email = "'.$email.'"')->fetchObject(self::class);
     }
 
     /**
@@ -41,11 +41,11 @@ class User{
      */
     public function cadastrar(){
         $this->id = (new Database('usuario'))->insert([
-            'nomeUsuario' => $this->nome,
-            'apelidoUsuario' => $this->apelido,
-            'telefoneUsuario' => $this->telefone,
-            'emailUsuario' => $this->email,
-            'senhaUsuario' => $this->senha        
+            'nome' => $this->nome,
+            'apelido' => $this->apelido,
+            'telefone' => $this->telefone,
+            'email' => $this->email,
+            'senha' => $this->senha        
         ]);
         return true;
     }
@@ -54,12 +54,12 @@ class User{
      * Método responsável por atualizar as informações do usuário
      */
     public function atualizar(){
-        return (new Database('usuario'))->update('idUsuario = '.$this->id,[
-            'nomeUsuario' => $this->nome,
-            'apelidoUsuario' => $this->apelido,
-            'telefoneUsuario' => $this->telefone,
-            'emailUsuario' => $this->email,
-            'senhaUsuario' => $this->senha  
+        return (new Database('usuario'))->update('id = '.$this->id,[
+            'nome' => $this->nome,
+            'apelido' => $this->apelido,
+            'telefone' => $this->telefone,
+            'email' => $this->email,
+            'senha' => $this->senha  
         ]);
     }
 
@@ -68,7 +68,7 @@ class User{
      *
      */
     public function excluir(){
-        return (new Database('usuario'))->delete('idUsuario = '.$this->id);
+        return (new Database('usuario'))->delete('id = '.$this->id);
     }
 
     /**
@@ -77,7 +77,7 @@ class User{
      * 
      */
     public static function getUserById($id){
-        return self::getUsers('idUsuario = '.$id)->fetchObject(self::class);
+        return self::getUsers('id = '.$id)->fetchObject(self::class);
     }
 
 }
