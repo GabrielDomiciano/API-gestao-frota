@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '257719b8e655e618d1ccb3228afb98a4c15d02f0',
+        'reference' => NULL,
         'name' => 'unisalesiano/gestao-frota',
         'dev' => true,
     ),
@@ -20,12 +20,12 @@
             'dev_requirement' => false,
         ),
         'unisalesiano/gestao-frota' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '257719b8e655e618d1ccb3228afb98a4c15d02f0',
+            'reference' => NULL,
             'dev_requirement' => false,
         ),
         'william-costa/database-manager' => array(
