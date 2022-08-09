@@ -25,7 +25,8 @@ $obRouter->get('/api/v1/users/{id}', [
 //ROTA POST CADASTRO USUÁRIO (CADASTRAR)
 $obRouter->post('/api/v1/users', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR USUÁRIO

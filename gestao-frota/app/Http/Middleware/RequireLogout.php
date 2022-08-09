@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Middleware;
-use \App\Session\Admin\Login as SessionAdminLogin;
+use \App\Session\Login as SessionLogin;
 
-class RequireAdminLogout{
+class RequirLogout{
     public function handle($request, $next){
         // verifica se o usuario esta logado
-        if (SessionAdminLogin::isLogged()) {
-            $request->getRouter()->redirect('/admin');
+        if (SessionLogin::isLogged()) {
+            $request->getRouter()->redirect(''); //PRECISO VER A ROTA DO FRONT PRA COLOCAR AQUI 
         }
         // continua a execução
         return $next($request);

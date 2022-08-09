@@ -4,6 +4,7 @@ namespace App\Controller\Api;
 
 use \App\Model\Entity\User as EntityUser;
 use \WilliamCosta\DatabaseManager\Pagination;
+use \App\Controller\Api\Email;
 
 class User extends Api{
     /**
@@ -115,12 +116,19 @@ class User extends Api{
         $obUser->senha = password_hash($postVars['senha'], PASSWORD_DEFAULT);
         $obUser->cadastrar();
 
+        $address = $obUser->email;
+        $subject = 'Seja bem Vindo ao nosso Sistema';
+        $body = '<b> ESTOU TESTANDO </b> <br><br> Teste 123';
+        $attachment = 'upload/email/teste.txt';
+
+        Email::setEmailAnexo($address, $subject, $body, $attachment);
+
         return [
             'id' => (int)$obUser->id,
             'nome' => $obUser->nome,
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
-            'email' => $obUser->email,
+            'email' => $obUser->email
         ];
     }
 

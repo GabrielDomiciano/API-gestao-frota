@@ -12,6 +12,10 @@ class ComposerStaticInit95c408c38ab931bb8f98fbe35bc4131c
             'WilliamCosta\\DotEnv\\' => 20,
             'WilliamCosta\\DatabaseManager\\' => 29,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'F' => 
         array (
             'Firebase\\JWT\\' => 13,
@@ -30,6 +34,10 @@ class ComposerStaticInit95c408c38ab931bb8f98fbe35bc4131c
         'WilliamCosta\\DatabaseManager\\' => 
         array (
             0 => __DIR__ . '/..' . '/william-costa/database-manager/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Firebase\\JWT\\' => 
         array (
