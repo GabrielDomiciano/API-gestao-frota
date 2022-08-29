@@ -5,6 +5,7 @@ use \App\Utils\View;
 use \WilliamCosta\DotEnv\Environment;
 use \WilliamCosta\DatabaseManager\Database;
 use \App\Http\Middleware\Queue as MiddlewareQueue;
+use Twilio\Rest\Client;
 
 Environment::load(__DIR__.'/../');
 

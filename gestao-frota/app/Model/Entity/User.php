@@ -45,7 +45,8 @@ class User{
             'apelido' => $this->apelido,
             'telefone' => $this->telefone,
             'email' => $this->email,
-            'senha' => $this->senha        
+            'senha' => $this->senha,
+            'idEmpresa' => $this->idEmpresa     
         ]);
         return true;
     }
@@ -59,7 +60,8 @@ class User{
             'apelido' => $this->apelido,
             'telefone' => $this->telefone,
             'email' => $this->email,
-            'senha' => $this->senha  
+            'senha' => $this->senha ,
+            'idEmpresa' => $this->idEmpresa   
         ]);
     }
 

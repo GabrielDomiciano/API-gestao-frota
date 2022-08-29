@@ -31,7 +31,8 @@ class User extends Api{
                 'nome' => $obUser->nome,
                 'apelido' => $obUser->apelido,
                 'telefone' => $obUser->telefone,
-                'email' => $obUser->email
+                'email' => $obUser->email,
+                'idEmpresa' => $obUser->idEmpresa  
             ];
         }
 
@@ -71,7 +72,9 @@ class User extends Api{
             'nome' => $obUser->nome,
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
-            'email' => $obUser->email
+            'email' => $obUser->email,
+            'idEmpresa' => $obUser->idEmpresa  
+
         ];
     }
 
@@ -83,7 +86,8 @@ class User extends Api{
             'nome' => $obUser->nome,
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
-            'email' => $obUser->email
+            'email' => $obUser->email,
+            'idEmpresa' => $obUser->idEmpresa  
         ];
     }
 
@@ -100,6 +104,11 @@ class User extends Api{
         if (!isset($postVars['nome']) or !isset($postVars['email']) or !isset($postVars['senha'])) {
             throw new \Exception("Os campos 'nome', 'email' e 'senha' são obrigatórios", 400);
         }
+        //VALIDA CAMPO DE EMPRESA OBRIGATÓRIO
+        if(!isset($postVars['idEmpresa'])){
+            throw new \Exception("Por favor, informe sua empresa para continuar com o processo", 400);
+            
+        }
 
         //VALIDA SE E-MAIL JÁ ESTÁ EM USO
        $obUserEmail = EntityUser::getUserByEmail($postVars['email']);
@@ -114,11 +123,13 @@ class User extends Api{
         $obUser->telefone = $postVars['telefone'];
         $obUser->email = $postVars['email'];
         $obUser->senha = password_hash($postVars['senha'], PASSWORD_DEFAULT);
+        $obUser->idEmpresa = $postVars['idEmpresa'];
         $obUser->cadastrar();
 
+        //MONTA O EMAIL PARA ENVIO
         $address = $obUser->email;
         $subject = 'Seja bem Vindo ao nosso Sistema';
-        $body = '<b> ESTOU TESTANDO </b> <br><br> Teste 123';
+        $body = '<b> ESTOU TESTANDO, olá'. $obUser->nome.' </b> <br><br> Teste 123';
         $attachment = 'upload/email/teste.txt';
 
         Email::setEmailAnexo($address, $subject, $body, $attachment);
@@ -128,7 +139,8 @@ class User extends Api{
             'nome' => $obUser->nome,
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
-            'email' => $obUser->email
+            'email' => $obUser->email,
+            'idEmpresa' => $obUser->idEmpresa  
         ];
     }
 
@@ -145,6 +157,11 @@ class User extends Api{
         //VALIDA CAMPOS OBRIGATÓRIOS
         if (!isset($postVars['nome']) or !isset($postVars['email']) or !isset($postVars['senha'])) {
             throw new \Exception("Os campos 'nome', 'email' e 'senha' são obrigatórios ", 400);
+        }
+        //VALIDA CAMPO DE EMPRESA OBRIGATÓRIO
+        if(!isset($postVars['idEmpresa'])){
+            throw new \Exception("Por favor, informe sua empresa para continuar com o processo", 400);
+            
         }
 
         //BUSCA USUÁRIO
@@ -166,6 +183,7 @@ class User extends Api{
         $obUser->telefone = $postVars['telefone'];
         $obUser->email = $postVars['email'];
         $obUser->senha = password_hash($postVars['senha'], PASSWORD_DEFAULT);
+        $obUser->idEmpresa = $postVars['idEmpresa'];
         $obUser->atualizar();
 
         return [
@@ -174,6 +192,7 @@ class User extends Api{
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
             'email' => $obUser->email,
+            'idEmpresa' => $obUser->idEmpresa  
         ];
     }
 

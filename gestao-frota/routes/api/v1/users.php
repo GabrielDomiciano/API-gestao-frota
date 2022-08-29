@@ -12,6 +12,17 @@ $obRouter->get('/api/v1/users', [
     }
 ]);
 
+//ROTA GET USUÁRIO ATUAL
+$obRouter->get('/api/v1/users/me', [
+    'middlewares' => [
+        'api',
+        'jwt-auth'
+    ],
+    function($request){
+        return new Response(200, Api\User::getCurrentUser($request), 'application/json');
+    }
+]);
+
 //ROTA GET USUARIO (POR USUÁRIO)
 $obRouter->get('/api/v1/users/{id}', [
     'middlewares' => [
@@ -37,7 +48,8 @@ $obRouter->post('/api/v1/users', [
 //ROTA PUT CADASTRO USUÁRIO (ALTERAR)
 $obRouter->put('/api/v1/users/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR USUÁRIO

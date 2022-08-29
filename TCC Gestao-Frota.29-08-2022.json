@@ -1,0 +1,1021 @@
+{
+	"info": {
+		"_postman_id": "2cf2d316-0dd7-409e-badd-fd27323b37da",
+		"name": "TCC Gestao-Frota",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21394965"
+	},
+	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Cadastrar Usuario",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "email@emails.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\" : \"Nayra Carol\",\n    \"telefone\" : \"1231231\",\n    \"email\" : \"gabriel.ads18@gmail.com\",\n    \"apelido\" : \"gabriel\",\n    \"senha\" : \"1234\",\n    \"idEmpresa\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/users",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\" : \"Gabriel Domiciano\",\n    \"telefone\" : \"1231231\",\n    \"email\" : \"gabriel.ads18@gmailas.com\",\n    \"apelido\" : \"gabriel\",\n    \"senha\" : \"1234\",\n    \"idEmpresa\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/users/24",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"users",
+								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Usuários",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/users?page=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Usuário",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/users/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"users",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/users/23",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"users",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verificar Usuário Atual",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imx1Y2FzcGluYTEyMzQ1Njc4QGdtYWlsLmNvbSJ9.IcFGRpl-WuVIDztYw_0vxlKTMMLf2I1R2UFtS8vrzW4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/users/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"users",
+								"me"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImdhYnJpZWwuYWRzMThAZ21haWwuY29tIn0.PdB3K8ER73YggAOxuoU7dxmomx4kn2xeMiw4iEKsP7g",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Veiculo",
+			"item": [
+				{
+					"name": "Cadastrar Veiculo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoVeiculo\" : \"Description\",\r\n    \"tipoVeiculo\" : \"Honda\",\r\n    \"qtdRodas\" : 2,\r\n    \"modeloVeiculo\" : \"Carro\",\r\n    \"ano\" : \"2016\",\r\n    \"estado\" : \"Boas condições\",\r\n    \"idFabricante\" : 1,\r\n    \"idEmpresa\" : 2,\r\n    \"idTipoMotor\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/veiculos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Veiculo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoVeiculo\" : \"Uma descrição qualquer 2\",\r\n    \"tipoVeiculo\" : \"HRV\",\r\n    \"qtdRodas\" : 7,\r\n    \"modeloVeiculo\" : \"Bi-Caçamba\",\r\n    \"ano\" : \"2006\",\r\n    \"estado\" : \"Boas condições\",\r\n    \"idFabricante\" : 1,\r\n    \"idEmpresa\" : 2,\r\n    \"idTipoMotor\" : 3\r\n}"
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/veiculos/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"veiculos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Veículo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/veiculos/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"veiculos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Veículos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/veiculos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"veiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um veículo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/veiculos/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"veiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Planos",
+			"item": [
+				{
+					"name": "Cadastrar Planos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoPlano\" : \"Description qualquer 4\",\r\n    \"valorPlano\" : 100.01,\r\n    \"detalhePlano\" : \"Detalhe qualquer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/planos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"planos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Planos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoPlano\" : \"Description qualquer\",\r\n    \"valorPlano\" : 100.01,\r\n    \"detalhePlano\" : \"Detalhe qualquer 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/planos/5",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"planos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Planos",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/planos/4",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"planos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Planos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/planos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"planos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Plano",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/planos/6",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"planos",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Motor",
+			"item": [
+				{
+					"name": "Cadastrar Motor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoMotor\" : \"Description qualquer\",\r\n    \"tipoMotor\" : \"v8\",\r\n    \"potenciaMotor\" : 420\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/motors",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"motors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Motor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoMotor\" : \"Description qualquer 2\",\r\n    \"tipoMotor\" : \"v8\",\r\n    \"potenciaMotor\" : 420\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/motors/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"motors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Motor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/motors/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"motors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Motor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/motors",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"motors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Motor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/motors/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"motors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Empresa",
+			"item": [
+				{
+					"name": "Cadastrar Empresa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoEmpresa\" : \"Description qualquer 5\",\r\n    \"cnpjEmpresa\" : 42123120,\r\n    \"localizacaoEmpresa\" : \"Rua qualquer\",\r\n    \"qtdFuncionarioEmpresa\" :   2,\r\n    \"ativo\" : \"s\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/empresas",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"empresas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Empresa",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoEmpresa\" : \"Description qualquer 5\",\r\n    \"cnpjEmpresa\" : 42123120,\r\n    \"localizacaoEmpresa\" : \"Rua qualquer\",\r\n    \"qtdFuncionarioEmpresa\" : 3,\r\n    \"ativo\" : \"s\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/empresas/8",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"empresas",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Empresa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/empresas/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"empresas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Empresa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/empresas?page=1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"empresas"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Empresa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/empresas/8",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"empresas",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fabricante",
+			"item": [
+				{
+					"name": "Cadastrar Fabricante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoFabricante\" : \"Description qualquer\",\r\n    \"taxaManutencao\" : 42123120,\r\n    \"percSeguranca\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/fabricantes",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"fabricantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Fabricante",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoFabricante\" : \"Description qualquer 2\",\r\n    \"taxaManutencao\" : 42123120,\r\n    \"percSeguranca\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/fabricantes/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"fabricantes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Fabricante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/fabricantes/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"fabricantes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Fabricantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/fabricantes",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"fabricantes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Fabricante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/fabricantes/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"fabricantes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Funcionário",
+			"item": [
+				{
+					"name": "Cadastrar Funcionario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Description qualquer\",\r\n    \"telefone\" : 42123120,\r\n    \"email\" : \"email@email.com\",\r\n    \"idEmpresa\" : 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/funcionarios",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Funcionario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Description qualquer 2\",\r\n    \"telefone\" : 42123120,\r\n    \"email\" : \"email@email.com\",\r\n    \"idEmpresa\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/funcionarios/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"funcionarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Funcionario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/funcionarios/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"funcionarios",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Funcionarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/funcionarios",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Funcionario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/funcionarios/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"funcionarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "Enviar Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/emails",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"emails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Gerar Token Usuário",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"japagay@gmail.com\",\r\n    \"senha\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

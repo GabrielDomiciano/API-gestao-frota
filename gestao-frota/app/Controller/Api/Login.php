@@ -3,45 +3,39 @@
 namespace App\Controller\Api;
 
 use \App\Model\Entity\User;
-use \App\Session\Login as SessionLogin;
-
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 class Login extends Api{
-    public static function getLogin($request, $errorMessage = null){
-        return $errorMessage;
-    }
-
-    public static function setLogin($request){
+    
+    public static function generateToken($request){
+        // post vars
         $postVars = $request->getPostVars();
-        
-        $email = $postVars['email'] ?? '';
-        
-        $senha = $postVars['senha'] ?? '';
+        if (!isset($postVars['email']) or !isset($postVars['senha'])) {
+            throw new \Exception("Os campos 'email' e 'senha' são obrigatorios", 400);      
+        }
 
         // busca usuario pelo email
-        $obUser = User::getUserByEmail($email);
+        $obUser = User::getUserByEmail($postVars['email']);
         if (!$obUser instanceof User) {
-            return 'Email ou senha inválidos';
+            throw new \Exception("Usuário ou senha Inválido! ", 400);      
         }
 
-        // verifica a senha do usuario
-        if (!password_verify($senha, $obUser->senha)) {
-            return 'Email ou senha inválidos';
+        //valida senha usuario
+        if (!password_verify($postVars['senha'],$obUser->senha)) {
+            throw new \Exception("Usuário ou senha Inválido! ", 400);      
         }
 
-        // cria a sessao de login
-        SessionLogin::login($obUser);
+        // payload
+        $payload = [
+            'email' => $obUser->email
+        ];
 
-        // redireciona o usuario para a home (PRECISO VER A ROTA DO FRONT PRA COLOCAR AQUI)
-        $request->getRouter()->redirect('/home');
-    }
-    /**
-     * metodo reponsavel por deslogar usuario
-     */
-    public static function setLogout($request){
-        // destroi a sessao de login
-        SessionLogin::logout($obUser);
+        //print_r(getenv('JWT_KEY')); exit;
+        $token = JWT::encode($payload, getenv('JWT_KEY'), 'HS256');
 
-        // redireciona o usuario para a tela de login (PRECISO VER A ROTA DO FRONT PRA COLOCAR AQUI)
-        //$request->getRouter()->redirect('/');
+        return [
+            'token' => $token
+        ];
+
     }
 }

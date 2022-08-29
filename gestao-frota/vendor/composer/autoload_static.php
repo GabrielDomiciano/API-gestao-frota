@@ -12,6 +12,10 @@ class ComposerStaticInit95c408c38ab931bb8f98fbe35bc4131c
             'WilliamCosta\\DotEnv\\' => 20,
             'WilliamCosta\\DatabaseManager\\' => 29,
         ),
+        'T' => 
+        array (
+            'Twilio\\' => 7,
+        ),
         'P' => 
         array (
             'PHPMailer\\PHPMailer\\' => 20,
@@ -34,6 +38,10 @@ class ComposerStaticInit95c408c38ab931bb8f98fbe35bc4131c
         'WilliamCosta\\DatabaseManager\\' => 
         array (
             0 => __DIR__ . '/..' . '/william-costa/database-manager/src',
+        ),
+        'Twilio\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twilio/sdk/src/Twilio',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (

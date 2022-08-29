@@ -30,7 +30,8 @@ class Empresa extends Api{
                 'descricaoEmpresa' => $obEmpresa->descricaoEmpresa,
                 'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
                 'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
-                'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa
+                'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
+                'ativo' =>  $obEmpresa->ativo
             ];
         }
 
@@ -70,7 +71,8 @@ class Empresa extends Api{
             'descricaoEmpresa' => $obEmpresa->descricaoEmpresa,
             'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
             'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
-            'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa
+            'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
+            'ativo' =>  $obEmpresa->ativo
         ];
     }
 
@@ -82,7 +84,8 @@ class Empresa extends Api{
             'descricaoEmpresa' => $obEmpresa->descricaoEmpresa,
             'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
             'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
-            'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa
+            'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
+            'ativo' =>  $obEmpresa->ativo
         ];
     }
 
@@ -106,6 +109,7 @@ class Empresa extends Api{
         $obEmpresa->cnpjEmpresa = $postVars['cnpjEmpresa'];
         $obEmpresa->localizacaoEmpresa = $postVars['localizacaoEmpresa'];
         $obEmpresa->qtdFuncionarioEmpresa = $postVars['qtdFuncionarioEmpresa'];
+        $obEmpresa->ativo = $postVars['ativo'];
         $obEmpresa->cadastrar();
 
         return [
@@ -113,7 +117,8 @@ class Empresa extends Api{
             'descricaoEmpresa' => $obEmpresa->descricaoEmpresa,
             'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
             'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
-            'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa
+            'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
+            'ativo' =>  $obEmpresa->ativo
         ];
     }
 
@@ -145,6 +150,7 @@ class Empresa extends Api{
         $obEmpresa->cnpjEmpresa = $postVars['cnpjEmpresa'];
         $obEmpresa->localizacaoEmpresa = $postVars['localizacaoEmpresa'];
         $obEmpresa->qtdFuncionarioEmpresa = $postVars['qtdFuncionarioEmpresa'];
+        $obEmpresa->ativo = $postVars['ativo'];
         $obEmpresa->atualizar();
 
         return [
@@ -152,7 +158,8 @@ class Empresa extends Api{
             'descricaoEmpresa' => $obEmpresa->descricaoEmpresa,
             'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
             'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
-            'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa
+            'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
+            'ativo' =>  $obEmpresa->ativo
         ];
     }
 

@@ -12,6 +12,7 @@ class Empresa{
     public $cnpjEmpresa;
     public $localizacaoEmpresa;
     public $qtdFuncionarioEmpresa;
+    public $ativo;
 
  
     /**
@@ -30,7 +31,8 @@ class Empresa{
             'descricaoEmpresa' => $this->descricaoEmpresa,
             'cnpjEmpresa' => $this->cnpjEmpresa,
             'localizacaoEmpresa' => $this->localizacaoEmpresa,
-            'qtdFuncionarioEmpresa' => $this->qtdFuncionarioEmpresa     
+            'qtdFuncionarioEmpresa' => $this->qtdFuncionarioEmpresa,
+            'ativo' => $this->ativo
         ]);
         return true;
     }
@@ -43,7 +45,8 @@ class Empresa{
             'descricaoEmpresa' => $this->descricaoEmpresa,
             'cnpjEmpresa' => $this->cnpjEmpresa,
             'localizacaoEmpresa' => $this->localizacaoEmpresa,
-            'qtdFuncionarioEmpresa' => $this->qtdFuncionarioEmpresa     
+            'qtdFuncionarioEmpresa' => $this->qtdFuncionarioEmpresa,
+            'ativo' => $this->ativo     
         ]);
     }
 

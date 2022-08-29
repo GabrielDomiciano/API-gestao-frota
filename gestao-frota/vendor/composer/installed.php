@@ -28,6 +28,15 @@
             'reference' => '9400f305a898f194caff5521f64e5dfa926626f3',
             'dev_requirement' => false,
         ),
+        'twilio/sdk' => array(
+            'pretty_version' => '6.40.1',
+            'version' => '6.40.1.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twilio/sdk',
+            'aliases' => array(),
+            'reference' => '94aa139df0bea5aadddb59353ed0ea220fa65c78',
+            'dev_requirement' => false,
+        ),
         'unisalesiano/gestao-frota' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
