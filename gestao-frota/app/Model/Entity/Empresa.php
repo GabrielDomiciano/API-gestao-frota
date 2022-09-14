@@ -12,7 +12,7 @@ class Empresa{
     public $cnpjEmpresa;
     public $localizacaoEmpresa;
     public $qtdFuncionarioEmpresa;
-    public $ativo;
+    public $idStatus;
 
  
     /**
@@ -32,7 +32,7 @@ class Empresa{
             'cnpjEmpresa' => $this->cnpjEmpresa,
             'localizacaoEmpresa' => $this->localizacaoEmpresa,
             'qtdFuncionarioEmpresa' => $this->qtdFuncionarioEmpresa,
-            'ativo' => $this->ativo
+            'idStatus' => $this->idStatus
         ]);
         return true;
     }
@@ -46,7 +46,7 @@ class Empresa{
             'cnpjEmpresa' => $this->cnpjEmpresa,
             'localizacaoEmpresa' => $this->localizacaoEmpresa,
             'qtdFuncionarioEmpresa' => $this->qtdFuncionarioEmpresa,
-            'ativo' => $this->ativo     
+            'idStatus' => $this->idStatus     
         ]);
     }
 
@@ -56,6 +56,16 @@ class Empresa{
      */
     public function excluir(){
         return (new Database('empresa'))->delete('id = '.$this->id);
+    }
+
+    /**
+     * Método responsável por alterar o status da empresa
+     * [ADMIN]
+     */
+    public function alterarStatus(){
+        return (new Database('empresa'))->update('id = '.$this->id,[
+            'idStatus' => $this->idStatus
+        ]);
     }
 
     /**

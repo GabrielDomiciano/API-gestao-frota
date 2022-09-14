@@ -32,7 +32,8 @@ class User extends Api{
                 'apelido' => $obUser->apelido,
                 'telefone' => $obUser->telefone,
                 'email' => $obUser->email,
-                'idEmpresa' => $obUser->idEmpresa  
+                'idEmpresa' => $obUser->idEmpresa,
+                'isAdmin' => $obUser->isAdmin,  
             ];
         }
 
@@ -73,7 +74,8 @@ class User extends Api{
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
             'email' => $obUser->email,
-            'idEmpresa' => $obUser->idEmpresa  
+            'idEmpresa' => $obUser->idEmpresa,
+            'isAdmin' => $obUser->isAdmin  
 
         ];
     }
@@ -87,7 +89,8 @@ class User extends Api{
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
             'email' => $obUser->email,
-            'idEmpresa' => $obUser->idEmpresa  
+            'idEmpresa' => $obUser->idEmpresa,
+            'isAdmin' => $obUser->isAdmin  
         ];
     }
 
@@ -124,15 +127,20 @@ class User extends Api{
         $obUser->email = $postVars['email'];
         $obUser->senha = password_hash($postVars['senha'], PASSWORD_DEFAULT);
         $obUser->idEmpresa = $postVars['idEmpresa'];
+        $obUser->isAdmin = 'n';
         $obUser->cadastrar();
 
         //MONTA O EMAIL PARA ENVIO
         $address = $obUser->email;
-        $subject = 'Seja bem Vindo ao nosso Sistema';
-        $body = '<b> ESTOU TESTANDO, olá'. $obUser->nome.' </b> <br><br> Teste 123';
+        $subject = 'Alerta de localidade Volvo FH440';
+        $body = '<b> Olá '. $obUser->nome.' </b> <br><br> Seu caminhão Volvo FH440 acabou de chegar em São Paulo';
         $attachment = 'upload/email/teste.txt';
 
         Email::setEmailAnexo($address, $subject, $body, $attachment);
+        
+        $telephone = $obUser->telefone;
+        $message = 'Olá ' . $obUser->nome . ' Seu caminhão Volvo FH440 acabou de chegar em São Paulo';
+        Whatsapp::setWhatsapp($telephone, $message);
 
         return [
             'id' => (int)$obUser->id,
@@ -140,7 +148,8 @@ class User extends Api{
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
             'email' => $obUser->email,
-            'idEmpresa' => $obUser->idEmpresa  
+            'idEmpresa' => $obUser->idEmpresa,
+            'isAdmin' => $obUser->isAdmin  
         ];
     }
 
@@ -184,6 +193,7 @@ class User extends Api{
         $obUser->email = $postVars['email'];
         $obUser->senha = password_hash($postVars['senha'], PASSWORD_DEFAULT);
         $obUser->idEmpresa = $postVars['idEmpresa'];
+        $obUser->isAdmin = 'n';
         $obUser->atualizar();
 
         return [
@@ -192,7 +202,8 @@ class User extends Api{
             'apelido' => $obUser->apelido,
             'telefone' => $obUser->telefone,
             'email' => $obUser->email,
-            'idEmpresa' => $obUser->idEmpresa  
+            'idEmpresa' => $obUser->idEmpresa,
+            'isAdmin' => $obUser->isAdmin  
         ];
     }
 

@@ -5,6 +5,7 @@ namespace App\Controller\Api;
 use \App\Model\Entity\User;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+
 class Login extends Api{
     
     public static function generateToken($request){
@@ -30,7 +31,6 @@ class Login extends Api{
             'email' => $obUser->email
         ];
 
-        //print_r(getenv('JWT_KEY')); exit;
         $token = JWT::encode($payload, getenv('JWT_KEY'), 'HS256');
 
         return [

@@ -31,7 +31,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\" : \"Nayra Carol\",\n    \"telefone\" : \"1231231\",\n    \"email\" : \"gabriel.ads18@gmail.com\",\n    \"apelido\" : \"gabriel\",\n    \"senha\" : \"1234\",\n    \"idEmpresa\" : 1\n}",
+							"raw": "{\n    \"nome\" : \"Teste Admin\",\n    \"telefone\" : \"1231231\",\n    \"email\" : \"gabriel.adass18@gmail.com\",\n    \"apelido\" : \"gabriel\",\n    \"senha\" : \"1234\",\n    \"idEmpresa\" : 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -56,11 +56,26 @@
 				{
 					"name": "Atualizar Usuario",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "lucaspina12345678@gmail.com",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\" : \"Gabriel Domiciano\",\n    \"telefone\" : \"1231231\",\n    \"email\" : \"gabriel.ads18@gmailas.com\",\n    \"apelido\" : \"gabriel\",\n    \"senha\" : \"1234\",\n    \"idEmpresa\" : 1\n}",
+							"raw": "{\n    \"nome\": \"Teste Admin\",\n    \"apelido\": \"gabriel\",\n    \"telefone\": \"1231231\",\n    \"email\": \"gabriel.adass18@gmail.com\",\n    \"senha\" : \"1234\",\n    \"idEmpresa\": 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -68,7 +83,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost/gestao-frota/api/v1/users/24",
+							"raw": "localhost/gestao-frota/api/v1/users/28",
 							"host": [
 								"localhost"
 							],
@@ -77,7 +92,7 @@
 								"api",
 								"v1",
 								"users",
-								"24"
+								"28"
 							]
 						}
 					},
@@ -116,7 +131,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/gestao-frota/api/v1/users/6",
+							"raw": "http://localhost/gestao-frota/api/v1/users/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -126,7 +141,7 @@
 								"api",
 								"v1",
 								"users",
-								"6"
+								"1"
 							]
 						}
 					},
@@ -161,7 +176,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Imx1Y2FzcGluYTEyMzQ1Njc4QGdtYWlsLmNvbSJ9.IcFGRpl-WuVIDztYw_0vxlKTMMLf2I1R2UFtS8vrzW4",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImdhYnJpZWwuYWRzMThAZ21haWwuY29tIn0.PdB3K8ER73YggAOxuoU7dxmomx4kn2xeMiw4iEKsP7g",
 								"type": "text"
 							}
 						],
@@ -574,7 +589,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"descricaoEmpresa\" : \"Description qualquer 5\",\r\n    \"cnpjEmpresa\" : 42123120,\r\n    \"localizacaoEmpresa\" : \"Rua qualquer\",\r\n    \"qtdFuncionarioEmpresa\" :   2,\r\n    \"ativo\" : \"s\"\r\n}",
+							"raw": "{\r\n    \"descricaoEmpresa\" : \"Xicão Incorporation\",\r\n    \"cnpjEmpresa\" : 123,\r\n    \"localizacaoEmpresa\" : \"Rua qualquer\",\r\n    \"qtdFuncionarioEmpresa\" :  2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -603,7 +618,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"descricaoEmpresa\" : \"Description qualquer 5\",\r\n    \"cnpjEmpresa\" : 42123120,\r\n    \"localizacaoEmpresa\" : \"Rua qualquer\",\r\n    \"qtdFuncionarioEmpresa\" : 3,\r\n    \"ativo\" : \"s\"\r\n}",
+							"raw": "{\r\n    \"descricaoEmpresa\" : \"Description qualquer 5\",\r\n    \"cnpjEmpresa\" : 42123120,\r\n    \"localizacaoEmpresa\" : \"Rua qualquer\",\r\n    \"qtdFuncionarioEmpresa\" : 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -632,7 +647,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost/gestao-frota/api/v1/empresas/2",
+							"raw": "localhost/gestao-frota/api/v1/empresas/11",
 							"host": [
 								"localhost"
 							],
@@ -641,7 +656,7 @@
 								"api",
 								"v1",
 								"empresas",
-								"2"
+								"11"
 							]
 						}
 					},
@@ -679,7 +694,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost/gestao-frota/api/v1/empresas/8",
+							"raw": "localhost/gestao-frota/api/v1/empresas/7",
 							"host": [
 								"localhost"
 							],
@@ -688,7 +703,38 @@
 								"api",
 								"v1",
 								"empresas",
-								"8"
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar um Status da Empresa [ADMIN]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idStatus\" : \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/admin/empresas/7",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"admin",
+								"empresas",
+								"7"
 							]
 						}
 					},
@@ -992,7 +1038,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"japagay@gmail.com\",\r\n    \"senha\": \"1234\"\r\n}",
+							"raw": "{\r\n    \"email\": \"gabriel.ads18@gmail.com\",\r\n    \"senha\": \"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1010,6 +1056,258 @@
 								"api",
 								"v1",
 								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Viagem",
+			"item": [
+				{
+					"name": "Cadastrar Viagem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origem\" : \"Guararapes\",\r\n    \"destino\" : \"Bauru\",\r\n    \"detalhe\" : \"Qualquer detalhe\",\r\n    \"kmPercorrido\" : \"150\",\r\n    \"litrosGastos\" : \"456.3\",\r\n    \"idVeiculo\" : \"1\",\r\n    \"idFuncionario\" : \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/viagens",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"viagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Viagem",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"origem\" : \"Guararapes\",\r\n    \"destino\" : \"Bauru\",\r\n    \"detalhe\" : \"Qualquer detalhe 2\",\r\n    \"kmPercorrido\" : \"201\",\r\n    \"litrosGastos\" : \"456.3\",\r\n    \"idVeiculo\" : \"1\",\r\n    \"idFuncionario\" : \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/viagens/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"viagens",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Viagem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/viagens/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"viagens",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todas Viagens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/viagens",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"viagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar uma Viagem",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/viagens/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"viagens",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tipos de Alertas",
+			"item": [
+				{
+					"name": "Cadastrar Alerta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoAlerta\" : \"descrição qualquer 2\",\r\n    \"tipoEnvio\" : \"SMS\",\r\n    \"detalhes\" : \"Qualquer detalhe\",\r\n    \"data\" : \"2022-05-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/alertas",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"alertas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Alerta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricaoAlerta\" : \"descrição qualquer\",\r\n    \"tipoEnvio\" : \"SMS\",\r\n    \"detalhes\" : \"Qualquer detalhe 2\",\r\n    \"data\" : \"2022-05-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/alertas/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"alertas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Alerta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/alertas/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"alertas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Alertas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/alertas",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"alertas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Alerta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/alertas/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"alertas",
+								"1"
 							]
 						}
 					},

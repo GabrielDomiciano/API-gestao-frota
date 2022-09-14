@@ -31,7 +31,7 @@ class Empresa extends Api{
                 'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
                 'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
                 'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
-                'ativo' =>  $obEmpresa->ativo
+                'idStatus' =>  $obEmpresa->idStatus
             ];
         }
 
@@ -72,7 +72,7 @@ class Empresa extends Api{
             'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
             'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
             'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
-            'ativo' =>  $obEmpresa->ativo
+            'idStatus' =>  $obEmpresa->idStatus
         ];
     }
 
@@ -85,7 +85,7 @@ class Empresa extends Api{
             'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
             'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
             'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
-            'ativo' =>  $obEmpresa->ativo
+            'idStatus' =>  $obEmpresa->idStatus
         ];
     }
 
@@ -109,7 +109,9 @@ class Empresa extends Api{
         $obEmpresa->cnpjEmpresa = $postVars['cnpjEmpresa'];
         $obEmpresa->localizacaoEmpresa = $postVars['localizacaoEmpresa'];
         $obEmpresa->qtdFuncionarioEmpresa = $postVars['qtdFuncionarioEmpresa'];
-        $obEmpresa->ativo = $postVars['ativo'];
+        //SETO O STATUS DA EMPRESA COMO PENDENTE (PRECISA DO ADMIN APROVAR A EMPRESA)
+        // 3 = PENDENTE
+        $obEmpresa->idStatus = 3;
         $obEmpresa->cadastrar();
 
         return [
@@ -118,7 +120,7 @@ class Empresa extends Api{
             'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
             'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
             'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
-            'ativo' =>  $obEmpresa->ativo
+            'idStatus' =>  $obEmpresa->idStatus
         ];
     }
 
@@ -150,7 +152,8 @@ class Empresa extends Api{
         $obEmpresa->cnpjEmpresa = $postVars['cnpjEmpresa'];
         $obEmpresa->localizacaoEmpresa = $postVars['localizacaoEmpresa'];
         $obEmpresa->qtdFuncionarioEmpresa = $postVars['qtdFuncionarioEmpresa'];
-        $obEmpresa->ativo = $postVars['ativo'];
+        //SETO O STATUS DA EMPRESA COMO PENDENTE (PRECISA DO ADMIN APROVAR A EMPRESA)
+        $obEmpresa->idStatus = 3;
         $obEmpresa->atualizar();
 
         return [
@@ -159,7 +162,7 @@ class Empresa extends Api{
             'cnpjEmpresa' => $obEmpresa->cnpjEmpresa,
             'localizacaoEmpresa' => $obEmpresa->localizacaoEmpresa,
             'qtdFuncionarioEmpresa' => $obEmpresa->qtdFuncionarioEmpresa,
-            'ativo' =>  $obEmpresa->ativo
+            'idStatus' =>  $obEmpresa->idStatus
         ];
     }
 
@@ -181,6 +184,39 @@ class Empresa extends Api{
 
         return [
             'sucesso' => true
+        ];
+    }
+
+    /**
+     * Método responsável por atualizar Status de 1 usuário
+     * [ADMIN]
+     *
+     * @param [type] $request
+     * @param integer $id
+     * @return integer
+     */
+    public static function atualizarStatus($request, $id) {
+         $postVars = $request->getPostVars();
+         //BUSCA Empresa NO BANCO
+         $obEmpresa = EntityEmpresa::getEmpresaById($id);
+
+         //VALIDA INSTANCIA
+        if (!$obEmpresa instanceof EntityEmpresa) {
+            throw new \Exception("A Empresa ". $id. " Não foi encontrado", 404);          
+        }
+
+        //VERIFICA SE O CAMPO NÃO VEM NULO OU COM NOME ERRADO
+        if($postVars['idStatus'] > 0 ) {
+            $obEmpresa->idStatus = $postVars['idStatus'];
+            $obEmpresa->alterarStatus();
+        }
+        else{
+            throw new \Exception("Por favor, insira um ID ou Parâmetro válido", 404);
+        }
+
+        //RETORNA O STATUS
+         return [
+            'idStatus' =>  $obEmpresa->idStatus
         ];
     }
 }

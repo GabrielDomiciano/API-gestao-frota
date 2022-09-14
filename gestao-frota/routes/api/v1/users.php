@@ -5,7 +5,7 @@ use \App\Controller\Api;
 //ROTA GET USUÁRIO (LISTAGEM TODOS USUARIOS)
 $obRouter->get('/api/v1/users', [
     'middlewares' => [
-        'api',
+        'api'
     ],
     function($request){
         return new Response(200, Api\User::getUsers($request), 'application/json');
@@ -36,8 +36,7 @@ $obRouter->get('/api/v1/users/{id}', [
 //ROTA POST CADASTRO USUÁRIO (CADASTRAR)
 $obRouter->post('/api/v1/users', [
     'middlewares' => [
-        'api',
-        'user-basic-auth'
+        'api'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR USUÁRIO
@@ -48,8 +47,7 @@ $obRouter->post('/api/v1/users', [
 //ROTA PUT CADASTRO USUÁRIO (ALTERAR)
 $obRouter->put('/api/v1/users/{id}', [
     'middlewares' => [
-        'api',
-        'user-basic-auth'
+        'api'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR USUÁRIO

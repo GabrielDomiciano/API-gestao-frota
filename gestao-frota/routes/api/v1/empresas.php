@@ -33,6 +33,18 @@ $obRouter->post('/api/v1/empresas', [
     }
 ]);
 
+//ROTA POST ATUALIZAR STATUS 
+// [ADMIN]
+$obRouter->post('/api/v1/admin/empresas/{id}', [
+    'middlewares' => [
+        'api'
+    ],
+    function($request, $id){
+        //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR STATUS DA EMPRESA
+        return new Response(201, Api\Empresa::atualizarStatus($request, $id), 'application/json');
+    }
+]);
+
 //ROTA PUT CADASTRO Empresa (ALTERAR)
 $obRouter->put('/api/v1/empresas/{id}', [
     'middlewares' => [

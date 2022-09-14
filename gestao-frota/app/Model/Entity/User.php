@@ -18,7 +18,9 @@ class User{
     //EMAIL DO USUÁRIO
     public $email;
     //SENHA DO USUÁRIO
-    public $senha; 
+    public $senha;
+    //VERIFICAÇÃO USUÁRIO ADMIN
+    public $isAdmin; 
 
     /**
      * Método responsável por buscar um usuário através do email
@@ -46,7 +48,8 @@ class User{
             'telefone' => $this->telefone,
             'email' => $this->email,
             'senha' => $this->senha,
-            'idEmpresa' => $this->idEmpresa     
+            'idEmpresa' => $this->idEmpresa,
+            'isAdmin' => $this->isAdmin     
         ]);
         return true;
     }
@@ -61,7 +64,8 @@ class User{
             'telefone' => $this->telefone,
             'email' => $this->email,
             'senha' => $this->senha ,
-            'idEmpresa' => $this->idEmpresa   
+            'idEmpresa' => $this->idEmpresa,
+            'isAdmin' => $this->isAdmin     
         ]);
     }
 
