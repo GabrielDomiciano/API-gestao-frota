@@ -11,6 +11,8 @@ include __DIR__.'/api/v1/emails.php';
 include __DIR__.'/api/v1/login.php';
 include __DIR__.'/api/v1/viagens.php';
 include __DIR__.'/api/v1/alertas.php';
+include __DIR__.'/api/v1/monitoramentos.php';
+
 
 
 

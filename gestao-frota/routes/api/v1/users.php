@@ -5,7 +5,8 @@ use \App\Controller\Api;
 //ROTA GET USUÁRIO (LISTAGEM TODOS USUARIOS)
 $obRouter->get('/api/v1/users', [
     'middlewares' => [
-        'api'
+        'api',
+        'jwt-auth'
     ],
     function($request){
         return new Response(200, Api\User::getUsers($request), 'application/json');
@@ -26,7 +27,8 @@ $obRouter->get('/api/v1/users/me', [
 //ROTA GET USUARIO (POR USUÁRIO)
 $obRouter->get('/api/v1/users/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'jwt-auth'
     ],
     function($request, $id){
         return new Response(200, Api\User::getUser($request, $id), 'application/json');
@@ -36,7 +38,8 @@ $obRouter->get('/api/v1/users/{id}', [
 //ROTA POST CADASTRO USUÁRIO (CADASTRAR)
 $obRouter->post('/api/v1/users', [
     'middlewares' => [
-        'api'
+        'api',
+        'jwt-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR USUÁRIO
@@ -47,7 +50,8 @@ $obRouter->post('/api/v1/users', [
 //ROTA PUT CADASTRO USUÁRIO (ALTERAR)
 $obRouter->put('/api/v1/users/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'jwt-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR USUÁRIO
@@ -58,7 +62,8 @@ $obRouter->put('/api/v1/users/{id}', [
 //ROTA DELETE USUÁRIO (EXCLUIR)
 $obRouter->delete('/api/v1/users/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'jwt-auth'
     ],
     function($request, $id){
         return new Response(200, Api\User::setDeleteUser($request, $id), 'application/json');
