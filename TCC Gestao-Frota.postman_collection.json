@@ -12,26 +12,11 @@
 				{
 					"name": "Cadastrar Usuario",
 					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "email@emails.com",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "1234",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nome\" : \"Teste Admin\",\n    \"telefone\" : \"1231231\",\n    \"email\" : \"gabriel.adass18@gmail.com\",\n    \"apelido\" : \"gabriel\",\n    \"senha\" : \"1234\",\n    \"idEmpresa\" : 1\n}",
+							"raw": "{\n    \"nome\" : \"ADMIN MASTER \",\n    \"telefone\" : \"\",\n    \"email\" : \"adminas@admin.com\",\n    \"apelido\" : \"admin\",\n    \"senha\" : \"Q6gSd46^@\",\n    \"idEmpresa\" : 1\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,9 +87,15 @@
 					"name": "Consultar todos Usuários",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.XEgmF6noTNo9FFiqL6joUIDcjz845iOnpjYJ3_HVYpw",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost/gestao-frota/api/v1/users?page=2",
+							"raw": "http://localhost/gestao-frota/api/v1/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -114,12 +105,6 @@
 								"api",
 								"v1",
 								"users"
-							],
-							"query": [
-								{
-									"key": "page",
-									"value": "2"
-								}
 							]
 						}
 					},
@@ -176,8 +161,14 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImdhYnJpZWwuYWRzMThAZ21haWwuY29tIn0.PdB3K8ER73YggAOxuoU7dxmomx4kn2xeMiw4iEKsP7g",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSJ9.XEgmF6noTNo9FFiqL6joUIDcjz845iOnpjYJ3_HVYpw",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -207,13 +198,206 @@
 			]
 		},
 		{
+			"name": "Monitoramento",
+			"item": [
+				{
+					"name": "Cadastrar Monitoramento",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "email@emails.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mediaKmDia\" : \"40\",\n    \"mediaGastoKm\" : \"1.9\",\n    \"emiteAlerta\" : \"s\",\n    \"kmUltimaRevisao\" : \"1590192010\",\n    \"configMsg\" : \"s\",\n    \"periodo\" : \"1 dia\",\n    \"mensagem\" : \"Qualquer coisa \",\n    \"dataHora\" : \"2022-09-14\",\n    \"idUsuario\" : 1,\n    \"idViagem\" : 2,\n    \"idTipoAlerta\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/monitoramentos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"monitoramentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Monitoramento",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "lucaspina12345678@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mediaKmDia\" : \"40\",\n    \"mediaGastoKm\" : \"1.9\",\n    \"emiteAlerta\" : \"s\",\n    \"kmUltimaRevisao\" : \"1590192010\",\n    \"configMsg\" : \"s\",\n    \"periodo\" : \"1 dia\",\n    \"mensagem\" : \"Qualquer coisa 1\",\n    \"dataHora\" : \"2022-09-14\",\n    \"idUsuario\" : 1,\n    \"idViagem\" : 2,\n    \"idTipoAlerta\" : 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/monitoramentos/3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"monitoramentos",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Monitoramentos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/monitoramentos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"monitoramentos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Monitoramento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/monitoramentos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"monitoramentos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta SQL - Personalizado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/monitoramentos-media/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"monitoramentos-media",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Monitoramento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/gestao-frota/api/v1/monitoramentos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"monitoramentos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Veiculo",
 			"item": [
 				{
 					"name": "Cadastrar Veiculo",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"descricaoVeiculo\" : \"Description\",\r\n    \"tipoVeiculo\" : \"Honda\",\r\n    \"qtdRodas\" : 2,\r\n    \"modeloVeiculo\" : \"Carro\",\r\n    \"ano\" : \"2016\",\r\n    \"estado\" : \"Boas condições\",\r\n    \"idFabricante\" : 1,\r\n    \"idEmpresa\" : 2,\r\n    \"idTipoMotor\" : 3\r\n}",
@@ -287,6 +471,21 @@
 				{
 					"name": "Consultar todos Veículos",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "#J35RK1xJb^o",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@master_security-API",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -319,6 +518,178 @@
 								"api",
 								"v1",
 								"veiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Relatório Gastos",
+			"item": [
+				{
+					"name": "Cadastrar Relatório Gastos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gastosDiarios\" : 12.5,\r\n    \"gastosSemanais\" : 12.5,\r\n    \"gastosMensais\" : 2,\r\n    \"gastosAnuais\" : 12.5,\r\n    \"mediaVeiculo\" : 1.7,\r\n    \"qtdViagens\" : 157,\r\n    \"kmRodado\" : 1000129,\r\n    \"dataHora\" : \"2022-08-30 00:00:00.000000\",\r\n    \"idUsuario\" : 3,\r\n    \"idVeiculo\" : 3,\r\n    \"idFuncionario\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/relatorios-gastos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"relatorios-gastos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Relatório Gastos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"gastosDiarios\" : 121231.5,\r\n    \"gastosSemanais\" : 12.5,\r\n    \"gastosMensais\" : 2,\r\n    \"gastosAnuais\" : 12.5,\r\n    \"mediaVeiculo\" : 1.7,\r\n    \"qtdViagens\" : 157,\r\n    \"kmRodado\" : 1000129,\r\n    \"dataHora\" : \"2022-08-30 00:00:00.000000\",\r\n    \"idUsuario\" : 3,\r\n    \"idVeiculo\" : 3,\r\n    \"idFuncionario\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/relatorios-gastos/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"relatorios-gastos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Relatório Gastos",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/relatorios-gastos/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"relatorios-gastos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todos Relatório Gastos",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "#J35RK1xJb^o",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@master_security-API",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Au",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/relatorios-gastos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"relatorios-gastos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um Relatório Gastos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/relatorios-gastos/1",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"relatorios-gastos",
 								"1"
 							]
 						}
@@ -1035,10 +1406,16 @@
 					"name": "Gerar Token Usuário",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"gabriel.ads18@gmail.com\",\r\n    \"senha\": \"1234\"\r\n}",
+							"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"senha\": \"Q6gSd46^@\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
