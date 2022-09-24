@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/fabricantes', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\Fabricante::getFabricantes($request), 'application/json');
@@ -15,7 +16,8 @@ $obRouter->get('/api/v1/fabricantes', [
 //ROTA GET USUARIO (POR Fabricante)
 $obRouter->get('/api/v1/fabricantes/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Fabricante::getFabricante($request, $id), 'application/json');
@@ -25,7 +27,8 @@ $obRouter->get('/api/v1/fabricantes/{id}', [
 //ROTA POST CADASTRO Fabricante (CADASTRAR)
 $obRouter->post('/api/v1/fabricantes', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR Fabricante
@@ -36,7 +39,8 @@ $obRouter->post('/api/v1/fabricantes', [
 //ROTA PUT CADASTRO Fabricante (ALTERAR)
 $obRouter->put('/api/v1/fabricantes/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR Fabricante
@@ -47,7 +51,8 @@ $obRouter->put('/api/v1/fabricantes/{id}', [
 //ROTA DELETE Fabricante (EXCLUIR)
 $obRouter->delete('/api/v1/fabricantes/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Fabricante::setDeleteFabricante($request, $id), 'application/json');

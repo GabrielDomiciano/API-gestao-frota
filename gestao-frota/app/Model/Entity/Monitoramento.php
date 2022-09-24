@@ -30,6 +30,14 @@ class Monitoramento{
     }
 
     /**
+     * Método responsável por fazer um SELECT personalizado
+     *
+     */
+    public static function getMediaGasto($id) {       
+        return (new Database('monitoramento_alertas'))->selectPersonalizado($id);
+    }
+
+    /**
      * Método responsável por cadastrar uma Monitoramento
      */
     public function cadastrar(){

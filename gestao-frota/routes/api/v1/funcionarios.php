@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/funcionarios', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\Funcionario::getFuncionarios($request), 'application/json');
@@ -15,7 +16,8 @@ $obRouter->get('/api/v1/funcionarios', [
 //ROTA GET USUARIO (POR Funcionario)
 $obRouter->get('/api/v1/funcionarios/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Funcionario::getFuncionario($request, $id), 'application/json');
@@ -25,7 +27,8 @@ $obRouter->get('/api/v1/funcionarios/{id}', [
 //ROTA POST CADASTRO Funcionario (CADASTRAR)
 $obRouter->post('/api/v1/funcionarios', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR Funcionario
@@ -36,7 +39,8 @@ $obRouter->post('/api/v1/funcionarios', [
 //ROTA PUT CADASTRO Funcionario (ALTERAR)
 $obRouter->put('/api/v1/funcionarios/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR Funcionario
@@ -47,7 +51,8 @@ $obRouter->put('/api/v1/funcionarios/{id}', [
 //ROTA DELETE Funcionario (EXCLUIR)
 $obRouter->delete('/api/v1/funcionarios/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Funcionario::setDeleteFuncionario($request, $id), 'application/json');

@@ -179,4 +179,21 @@ class Database{
     return true;
   }
 
+  /**
+   * Método responsável por executar uma consulta no banco
+   * @return PDOStatement
+   */
+  public function selectPersonalizado($id){
+    //MONTA A QUERY
+    $query = "select avg(ma.mediaGastoKm) mediaGasto, avg(ma.mediaKmDia) mediaKmDia, vg.idVeiculo, vl.descricaoVeiculo 
+              from monitoramento_alertas ma
+              inner join viagem vg on ma.idViagem = vg.id
+              inner join veiculo vl on vl.id = vg.idVeiculo
+              where vg.idVeiculo = $id
+              group by vg.idVeiculo";
+
+    //EXECUTA A QUERY
+    return $this->execute($query);
+  }
+
 }

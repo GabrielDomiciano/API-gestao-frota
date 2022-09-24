@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/motors', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\Motor::getMotors($request), 'application/json');
@@ -15,7 +16,8 @@ $obRouter->get('/api/v1/motors', [
 //ROTA GET MOTOR (POR MOTOR)
 $obRouter->get('/api/v1/motors/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Motor::getMotor($request, $id), 'application/json');
@@ -25,7 +27,8 @@ $obRouter->get('/api/v1/motors/{id}', [
 //ROTA POST CADASTRO MOTOR (CADASTRAR)
 $obRouter->post('/api/v1/motors', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR MOTOR
@@ -36,7 +39,8 @@ $obRouter->post('/api/v1/motors', [
 //ROTA PUT CADASTRO MOTOR (ALTERAR)
 $obRouter->put('/api/v1/motors/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR MOTOR
@@ -47,7 +51,8 @@ $obRouter->put('/api/v1/motors/{id}', [
 //ROTA DELETE MOTOR (EXCLUIR)
 $obRouter->delete('/api/v1/motors/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Motor::setDeleteMotor($request, $id), 'application/json');

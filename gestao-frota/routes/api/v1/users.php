@@ -6,7 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/users', [
     'middlewares' => [
         'api',
-        'jwt-auth'
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\User::getUsers($request), 'application/json');
@@ -28,7 +28,7 @@ $obRouter->get('/api/v1/users/me', [
 $obRouter->get('/api/v1/users/{id}', [
     'middlewares' => [
         'api',
-        'jwt-auth'
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\User::getUser($request, $id), 'application/json');
@@ -39,7 +39,7 @@ $obRouter->get('/api/v1/users/{id}', [
 $obRouter->post('/api/v1/users', [
     'middlewares' => [
         'api',
-        'jwt-auth'
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR USUÁRIO
@@ -51,7 +51,7 @@ $obRouter->post('/api/v1/users', [
 $obRouter->put('/api/v1/users/{id}', [
     'middlewares' => [
         'api',
-        'jwt-auth'
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR USUÁRIO
@@ -63,7 +63,7 @@ $obRouter->put('/api/v1/users/{id}', [
 $obRouter->delete('/api/v1/users/{id}', [
     'middlewares' => [
         'api',
-        'jwt-auth'
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\User::setDeleteUser($request, $id), 'application/json');

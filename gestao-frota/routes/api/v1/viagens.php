@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/viagens', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\Viagem::getViagens($request), 'application/json');
@@ -15,7 +16,8 @@ $obRouter->get('/api/v1/viagens', [
 //ROTA GET USUARIO (POR VIAGEM)
 $obRouter->get('/api/v1/viagens/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Viagem::getViagem($request, $id), 'application/json');
@@ -25,7 +27,8 @@ $obRouter->get('/api/v1/viagens/{id}', [
 //ROTA POST CADASTRO VIAGEM (CADASTRAR)
 $obRouter->post('/api/v1/viagens', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR VIAGEM
@@ -36,7 +39,8 @@ $obRouter->post('/api/v1/viagens', [
 //ROTA PUT CADASTRO VIAGEM (ALTERAR)
 $obRouter->put('/api/v1/viagens/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR VIAGEM
@@ -47,7 +51,8 @@ $obRouter->put('/api/v1/viagens/{id}', [
 //ROTA DELETE VIAGEM (EXCLUIR)
 $obRouter->delete('/api/v1/viagens/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Viagem::setDeleteViagem($request, $id), 'application/json');

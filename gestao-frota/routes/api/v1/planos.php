@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/planos', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\Plano::getPlanos($request), 'application/json');
@@ -15,7 +16,8 @@ $obRouter->get('/api/v1/planos', [
 //ROTA GET USUARIO (POR PLANO)
 $obRouter->get('/api/v1/planos/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Plano::getPlano($request, $id), 'application/json');
@@ -25,7 +27,8 @@ $obRouter->get('/api/v1/planos/{id}', [
 //ROTA POST CADASTRO PLANO (CADASTRAR)
 $obRouter->post('/api/v1/planos', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR PLANO
@@ -36,7 +39,8 @@ $obRouter->post('/api/v1/planos', [
 //ROTA PUT CADASTRO PLANO (ALTERAR)
 $obRouter->put('/api/v1/planos/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR PLANO
@@ -47,7 +51,8 @@ $obRouter->put('/api/v1/planos/{id}', [
 //ROTA DELETE PLANO (EXCLUIR)
 $obRouter->delete('/api/v1/planos/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Plano::setDeletePlano($request, $id), 'application/json');

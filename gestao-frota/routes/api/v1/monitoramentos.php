@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/monitoramentos', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\Monitoramento::getMonitoramentos($request), 'application/json');
@@ -15,7 +16,8 @@ $obRouter->get('/api/v1/monitoramentos', [
 //ROTA GET USUARIO (POR Monitoramento)
 $obRouter->get('/api/v1/monitoramentos/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Monitoramento::getMonitoramento($request, $id), 'application/json');
@@ -25,7 +27,8 @@ $obRouter->get('/api/v1/monitoramentos/{id}', [
 //ROTA POST CADASTRO Monitoramento (CADASTRAR)
 $obRouter->post('/api/v1/monitoramentos', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR Monitoramento
@@ -36,7 +39,8 @@ $obRouter->post('/api/v1/monitoramentos', [
 //ROTA PUT CADASTRO Monitoramento (ALTERAR)
 $obRouter->put('/api/v1/monitoramentos/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR Monitoramento
@@ -47,9 +51,21 @@ $obRouter->put('/api/v1/monitoramentos/{id}', [
 //ROTA DELETE Monitoramento (EXCLUIR)
 $obRouter->delete('/api/v1/monitoramentos/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Monitoramento::setDeleteMonitoramento($request, $id), 'application/json');
+    }
+]);
+
+//ROTA GET Monitoramento PERSONALIZADO
+$obRouter->get('/api/v1/monitoramentos-media/{id}', [
+    'middlewares' => [
+        'api',
+        'user-basic-auth'
+    ],
+    function($request, $id){
+        return new Response(200, Api\Monitoramento::getMediaGasto($request, $id), 'application/json');
     }
 ]);

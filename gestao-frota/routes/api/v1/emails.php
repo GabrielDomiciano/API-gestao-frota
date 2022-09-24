@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->post('/api/v1/emails', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\Email::setEmail($request), 'application/json');

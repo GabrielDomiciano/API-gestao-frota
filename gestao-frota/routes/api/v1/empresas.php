@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/empresas', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\Empresa::getEmpresas($request), 'application/json');
@@ -15,7 +16,8 @@ $obRouter->get('/api/v1/empresas', [
 //ROTA GET USUARIO (POR Empresa)
 $obRouter->get('/api/v1/empresas/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Empresa::getEmpresa($request, $id), 'application/json');
@@ -25,7 +27,8 @@ $obRouter->get('/api/v1/empresas/{id}', [
 //ROTA POST CADASTRO Empresa (CADASTRAR)
 $obRouter->post('/api/v1/empresas', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR Empresa
@@ -37,7 +40,8 @@ $obRouter->post('/api/v1/empresas', [
 // [ADMIN]
 $obRouter->post('/api/v1/admin/empresas/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR STATUS DA EMPRESA
@@ -48,7 +52,8 @@ $obRouter->post('/api/v1/admin/empresas/{id}', [
 //ROTA PUT CADASTRO Empresa (ALTERAR)
 $obRouter->put('/api/v1/empresas/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR Empresa
@@ -59,7 +64,8 @@ $obRouter->put('/api/v1/empresas/{id}', [
 //ROTA DELETE Empresa (EXCLUIR)
 $obRouter->delete('/api/v1/empresas/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\Empresa::setDeleteEmpresa($request, $id), 'application/json');

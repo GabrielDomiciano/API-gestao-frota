@@ -5,6 +5,7 @@ namespace App\Controller\Api;
 use \App\Model\Entity\Monitoramento as EntityMonitoramento;
 use \WilliamCosta\DatabaseManager\Pagination;
 
+
 class Monitoramento extends Api{
     /**
      * Método responsável por mostrar cada item da Monitoramento
@@ -209,6 +210,18 @@ class Monitoramento extends Api{
 
         return [
             'sucesso' => 'Monitoramento excluído com sucesso'
+        ];
+    }
+
+    public static function getMediaGasto($request, $id) {
+        $results = EntityMonitoramento::getMediaGasto($id);
+        $obMonitoramento = $results->fetchObject(EntityMonitoramento::class);
+
+        return [
+            'mediaGasto' => $obMonitoramento->mediaGasto,
+            'mediaKmDia' => $obMonitoramento->mediaKmDia,
+            'idVeiculo' => $obMonitoramento->idVeiculo,
+            'descricaoVeiculo' => $obMonitoramento->descricaoVeiculo,
         ];
     }
 }

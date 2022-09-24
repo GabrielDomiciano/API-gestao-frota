@@ -6,6 +6,7 @@ use \App\Controller\Api;
 $obRouter->get('/api/v1/alertas', [
     'middlewares' => [
         'api',
+        'user-basic-auth'
     ],
     function($request){
         return new Response(200, Api\TipoAlerta::getAlertas($request), 'application/json');
@@ -15,7 +16,8 @@ $obRouter->get('/api/v1/alertas', [
 //ROTA GET USUARIO (POR ALERTA)
 $obRouter->get('/api/v1/alertas/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\TipoAlerta::getAlerta($request, $id), 'application/json');
@@ -25,7 +27,8 @@ $obRouter->get('/api/v1/alertas/{id}', [
 //ROTA POST CADASTRO ALERTA (CADASTRAR)
 $obRouter->post('/api/v1/alertas', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request){
         //RETORNA O MÉTODO RESPONSÁVEL POR CADASTRAR ALERTA
@@ -36,7 +39,8 @@ $obRouter->post('/api/v1/alertas', [
 //ROTA PUT CADASTRO ALERTA (ALTERAR)
 $obRouter->put('/api/v1/alertas/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         //RETORNA O MÉTODO RESPONSÁVEL POR ATUALIZAR ALERTA
@@ -47,7 +51,8 @@ $obRouter->put('/api/v1/alertas/{id}', [
 //ROTA DELETE ALERTA (EXCLUIR)
 $obRouter->delete('/api/v1/alertas/{id}', [
     'middlewares' => [
-        'api'
+        'api',
+        'user-basic-auth'
     ],
     function($request, $id){
         return new Response(200, Api\TipoAlerta::setDeleteAlerta($request, $id), 'application/json');
