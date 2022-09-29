@@ -1366,6 +1366,132 @@
 			]
 		},
 		{
+			"name": "Mensagens Funcionario",
+			"item": [
+				{
+					"name": "Cadastrar Mensagem e Enviar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"telefone\" : null,\r\n    \"email\" : \"\",\r\n    \"mensagem\" : \"Olá Guilherme, sua próxima viagem está marcada para São Paulo\",\r\n    \"idEmpresa\" : 2,\r\n    \"idFuncionario\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/mensagens",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"mensagens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Mensagem",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/mensagens/524280",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"mensagens",
+								"524280"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar todas Mensagens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/mensagens?page=3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"mensagens"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar uma Mensagem",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic YWRtaW5AbWFzdGVyX3NlY3VyaXR5LUFQSTojSjM1UksxeEpiXm8=",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/gestao-frota/api/v1/mensagens/786420",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"gestao-frota",
+								"api",
+								"v1",
+								"mensagens",
+								"786420"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Email",
 			"item": [
 				{
