@@ -127,7 +127,7 @@ class Veiculo extends Api{
         $obVeiculo->idFabricante = $postVars['idFabricante'];
         $obVeiculo->idEmpresa = $postVars['idEmpresa'];   
         $obVeiculo->idTipoMotor = $postVars['idTipoMotor'];
-
+        
        
         $obVeiculo->cadastrar();
 
