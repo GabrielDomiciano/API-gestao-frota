@@ -14,6 +14,8 @@ include __DIR__.'/api/v1/alertas.php';
 include __DIR__.'/api/v1/monitoramentos.php';
 include __DIR__.'/api/v1/relatoriosGastos.php';
 include __DIR__.'/api/v1/mensagens.php';
+include __DIR__.'/api/v1/pagamentos.php';
+
 
 
 
