@@ -20,7 +20,7 @@ class Motor extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityMotor::getMotors(null, 'id ASC', $obPagination->getLimit());
 
         while($obMotor = $results->fetchObject(EntityMotor::class)){

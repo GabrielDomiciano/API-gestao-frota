@@ -20,7 +20,7 @@ class Mensagem extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityMensagem::getMensagens(null, 'id ASC', $obPagination->getLimit());
 
         while($obMensagem = $results->fetchObject(EntityMensagem::class)){

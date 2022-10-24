@@ -20,7 +20,7 @@ class Pagamento extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityPagamento::getPagamentos(null, 'id ASC', $obPagination->getLimit());
 
         while($obPagamento = $results->fetchObject(EntityPagamento::class)){

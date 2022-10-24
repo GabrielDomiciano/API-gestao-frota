@@ -21,7 +21,7 @@ class Monitoramento extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityMonitoramento::getMonitoramentos(null, 'id ASC', $obPagination->getLimit());
 
         while($obMonitoramento = $results->fetchObject(EntityMonitoramento::class)){

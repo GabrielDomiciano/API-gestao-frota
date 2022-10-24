@@ -20,7 +20,7 @@ class Funcionario extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityFuncionario::getFuncionarios(null, 'id ASC', $obPagination->getLimit());
 
         while($obFuncionario = $results->fetchObject(EntityFuncionario::class)){

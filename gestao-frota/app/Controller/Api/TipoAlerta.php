@@ -20,7 +20,7 @@ class TipoAlerta extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityAlerta::getAlertas(null, 'id ASC', $obPagination->getLimit());
 
         while($obAlerta = $results->fetchObject(EntityAlerta::class)){

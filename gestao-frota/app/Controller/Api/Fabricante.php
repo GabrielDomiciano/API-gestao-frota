@@ -20,7 +20,7 @@ class Fabricante extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityFabricante::getFabricantes(null, 'id ASC', $obPagination->getLimit());
 
         while($obFabricante = $results->fetchObject(EntityFabricante::class)){

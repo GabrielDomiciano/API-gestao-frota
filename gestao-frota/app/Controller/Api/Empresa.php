@@ -20,7 +20,7 @@ class Empresa extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityEmpresa::getEmpresas(null, 'id ASC', $obPagination->getLimit());
 
         while($obEmpresa = $results->fetchObject(EntityEmpresa::class)){

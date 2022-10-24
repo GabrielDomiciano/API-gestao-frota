@@ -20,7 +20,7 @@ class Plano extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityPlano::getPlanos(null, 'id ASC', $obPagination->getLimit());
 
         while($obPlano = $results->fetchObject(EntityPlano::class)){

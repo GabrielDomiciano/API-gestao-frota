@@ -20,7 +20,7 @@ class Viagem extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityViagem::getViagens(null, 'id ASC', $obPagination->getLimit());
 
         while($obViagem = $results->fetchObject(EntityViagem::class)){

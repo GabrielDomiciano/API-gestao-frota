@@ -20,7 +20,7 @@ class RelatorioGastos extends Api{
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
 
-        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 5);
+        $obPagination = new Pagination($quantidadeTotal, $paginaAtual, 500);
         $results = EntityRelatorioGastos::getRelatoriosGastos(null, 'id ASC', $obPagination->getLimit());
 
         while($obRelatorioGastos = $results->fetchObject(EntityRelatorioGastos::class)){
