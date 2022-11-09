@@ -7,6 +7,7 @@ namespace App\Controller\Api;
  */
 class Api{
     public static function getDetails($request){
+        //DETALHES DA API
         return [
             'nome' => 'API - Gestao-Frota - TCC',
             'versao' => 'v1.0.0',

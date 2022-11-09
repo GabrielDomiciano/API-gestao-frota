@@ -96,6 +96,12 @@ class Pagamento extends Api{
     public static function setNewPagamento($request){
         $postVars = $request->getPostVars();
 
+        //VALIDA CAMPOS OBRIGATÓRIOS
+        if (!isset($postVars['descricao']) or !isset($postVars['tipo']) or !isset($postVars['dataPagamento']) 
+                    or !isset($postVars['valor']) or !isset($postVars['status']) or !isset($postVars['dataVencimento'])) {
+            throw new \Exception("Existem campos obrigatórios que não foram preenchidos", 400);
+        }
+
         //CADASTRA NOVO Pagamento
         $obPagamento = new EntityPagamento;
         $obPagamento->descricao = $postVars['descricao'];
@@ -127,6 +133,12 @@ class Pagamento extends Api{
 
     public static function setEditPagamento($request, $id){
         $postVars = $request->getPostVars();
+
+        //VALIDA CAMPOS OBRIGATÓRIOS
+        if (!isset($postVars['descricao']) or !isset($postVars['tipo']) or !isset($postVars['dataPagamento']) 
+                    or !isset($postVars['valor']) or !isset($postVars['status']) or !isset($postVars['dataVencimento'])) {
+            throw new \Exception("Existem campos obrigatórios que não foram preenchidos", 400);
+        }
 
         //BUSCA PAGAMENTO
         $obPagamento = EntityPagamento::getPagamentoById($id);

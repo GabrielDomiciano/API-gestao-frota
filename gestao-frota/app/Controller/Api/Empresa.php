@@ -136,7 +136,7 @@ class Empresa extends Api{
 
         //VALIDA CAMPOS OBRIGATÓRIOS
         if (!isset($postVars['descricaoEmpresa']) or !isset($postVars['cnpjEmpresa'])) {
-            throw new \Exception("Os campos 'descricao' e 'cnpj' são obrigatórios", 400);
+            throw new \Exception("Os campos 'descricao', 'cnpj' e 'idStatus' são obrigatórios", 400);
         }
 
         //BUSCA Empresa
@@ -144,7 +144,7 @@ class Empresa extends Api{
 
         //VALIDA Empresa
         if (!$obEmpresa instanceof EntityEmpresa) {
-            throw new \Exception("A Empresa ". $id. " Não foi encontrado", 404);
+            throw new \Exception("A Empresa ". $id. " Não foi encontrada", 404);
         }
 
        //ATUALIZA Empresa
@@ -152,8 +152,6 @@ class Empresa extends Api{
         $obEmpresa->cnpjEmpresa = $postVars['cnpjEmpresa'];
         $obEmpresa->localizacaoEmpresa = $postVars['localizacaoEmpresa'];
         $obEmpresa->qtdFuncionarioEmpresa = $postVars['qtdFuncionarioEmpresa'];
-        //SETO O STATUS DA EMPRESA COMO PENDENTE (PRECISA DO ADMIN APROVAR A EMPRESA)
-        $obEmpresa->idStatus = 3;
         $obEmpresa->atualizar();
 
         return [
@@ -176,7 +174,7 @@ class Empresa extends Api{
 
         //VALIDA INSTANCIA
         if (!$obEmpresa instanceof EntityEmpresa) {
-            throw new \Exception("A Empresa ". $id. " Não foi encontrado", 404);          
+            throw new \Exception("A Empresa ". $id. " Não foi encontrada", 404);          
         }
 
         //EXCLUIR Empresa

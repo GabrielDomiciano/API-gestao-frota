@@ -34,6 +34,7 @@ class Viagem extends Api{
                 'litrosGastos' => $obViagem->litrosGastos,
                 'idVeiculo' => $obViagem->idVeiculo,
                 'idFuncionario' => $obViagem->idFuncionario,
+                'idEmpresa' => $obViagem->idEmpresa
             ];
         }
 
@@ -77,6 +78,7 @@ class Viagem extends Api{
             'litrosGastos' => $obViagem->litrosGastos,
             'idVeiculo' => $obViagem->idVeiculo,
             'idFuncionario' => $obViagem->idFuncionario,
+            'idEmpresa' => $obViagem->idEmpresa
         ];
     }
 
@@ -92,6 +94,7 @@ class Viagem extends Api{
             'litrosGastos' => $obViagem->litrosGastos,
             'idVeiculo' => $obViagem->idVeiculo,
             'idFuncionario' => $obViagem->idFuncionario,
+            'idEmpresa' => $obViagem->idEmpresa
         ];
     }
 
@@ -119,6 +122,7 @@ class Viagem extends Api{
         $obViagem->litrosGastos = $postVars['litrosGastos'];
         $obViagem->idVeiculo = $postVars['idVeiculo'];
         $obViagem->idFuncionario = $postVars['idFuncionario'];
+        $obViagem->idEmpresa = $postVars['idEmpresa'];
        
         $obViagem->cadastrar();
 
@@ -131,6 +135,7 @@ class Viagem extends Api{
             'litrosGastos' => $obViagem->litrosGastos,
             'idVeiculo' => $obViagem->idVeiculo,
             'idFuncionario' => $obViagem->idFuncionario,
+            'idEmpresa' => $obViagem->idEmpresa
         ];
     }
 
@@ -158,6 +163,7 @@ class Viagem extends Api{
         $obViagem->litrosGastos = $postVars['litrosGastos'];
         $obViagem->idVeiculo = $postVars['idVeiculo'];
         $obViagem->idFuncionario = $postVars['idFuncionario'];
+        $obViagem->idEmpresa = $postVars['idEmpresa'];
         $obViagem->atualizar();
 
         return [
@@ -169,6 +175,7 @@ class Viagem extends Api{
             'litrosGastos' => $obViagem->litrosGastos,
             'idVeiculo' => $obViagem->idVeiculo,
             'idFuncionario' => $obViagem->idFuncionario,
+            'idEmpresa' => $obViagem->idEmpresa
         ];
     }
     

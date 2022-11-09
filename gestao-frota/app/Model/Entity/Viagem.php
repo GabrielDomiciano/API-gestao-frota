@@ -23,6 +23,8 @@ class Viagem{
     public $idVeiculo;
     //CHAVE ESTRANGEIRA FUNCIONARIO VIAGEM
     public $idFuncionario;
+    public $idEmpresa;
+
 
     /**
      * Método responsável por buscar todas as viagens
@@ -43,7 +45,8 @@ class Viagem{
             'kmPercorrido' => $this->kmPercorrido,
             'litrosGastos' => $this->litrosGastos,
             'idVeiculo' => $this->idVeiculo,
-            'idFuncionario' => $this->idFuncionario     
+            'idFuncionario' => $this->idFuncionario,
+            'idEmpresa' => $this->idEmpresa    
         ]);
         return true;
     }
@@ -59,7 +62,8 @@ class Viagem{
             'kmPercorrido' => $this->kmPercorrido,
             'litrosGastos' => $this->litrosGastos,
             'idVeiculo' => $this->idVeiculo,
-            'idFuncionario' => $this->idFuncionario     
+            'idFuncionario' => $this->idFuncionario,
+            'idEmpresa' => $this->idEmpresa    
         ]);
     }
 

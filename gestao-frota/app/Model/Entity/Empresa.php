@@ -13,6 +13,7 @@ class Empresa{
     public $localizacaoEmpresa;
     public $qtdFuncionarioEmpresa;
     public $idStatus;
+    
 
  
     /**

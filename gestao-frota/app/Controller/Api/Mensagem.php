@@ -87,6 +87,11 @@ class Mensagem extends Api{
     public static function setNewMensagem($request){
         $postVars = $request->getPostVars();
 
+        //VALIDA CAMPOS OBRIGATÓRIOS
+        if (!isset($postVars['idFuncionario']) or !isset($postVars['mensagem']) or !isset($postVars['idEmpresa'])) {
+            throw new \Exception("Os campos 'idFuncionario', 'mensagem' e 'idEmpresa' são obrigatórios", 400);
+        }
+
         //CADASTRA NOVO Mensagem
         $obMensagem = new EntityMensagem;
         $obMensagem->telefone = $postVars['telefone'];
