@@ -86,6 +86,38 @@ class Pagamento extends Api{
         ];
     }
 
+    /**
+     * Método responsável por pegar um usuário
+     *
+     */
+    public static function getPagamentoEmpresa($request, $id){
+        //VALIDA O ID
+        if (!is_numeric($id)) {
+            throw new \Exception("O id". $id. " Não é valido", 404);
+        }
+
+        //BUSCA Pagamento
+        $obPagamento = EntityPagamento::getPagamentoByIdEmpresa($id);
+
+        if (!$obPagamento instanceof EntityPagamento) {
+            throw new \Exception("A empresa ". $id. " Não foi encontrada", 404);
+        }
+
+        return [
+            'id' => (int)$obPagamento->id,
+            'descricao' => $obPagamento->descricao,
+            'codigoTransacao' => $obPagamento->codigoTransacao,
+            'tipo' => $obPagamento->tipo,
+            'idPlano' => $obPagamento->idPlano,
+            'idEmpresa' => $obPagamento->idEmpresa,
+            'dataPagamento' => $obPagamento->dataPagamento,
+            'valor' => $obPagamento->valor,
+            'status' => $obPagamento->status,
+            'dataVencimento' => $obPagamento->dataVencimento,
+            'usuario' => $obPagamento->usuario
+        ];
+    }
+
     // -------------------------------------------------------- -------------------------------------------------------------
     /**
      * Método responsável por adicionar novo Pagamento

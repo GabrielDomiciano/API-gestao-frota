@@ -86,4 +86,13 @@ class Pagamento{
     public static function getPagamentoById($id){
         return self::getPagamentos('id = '.$id)->fetchObject(self::class);
     }
+
+    /**
+     * Método responsável por buscar um veículo através pelo ID
+     *
+     * 
+     */
+    public static function getPagamentoByIdEmpresa($id){
+        return self::getPagamentos('idEmpresa = '.$id)->fetchObject(self::class);
+    }
 }

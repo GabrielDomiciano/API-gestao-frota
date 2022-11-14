@@ -82,4 +82,13 @@ class Veiculo{
     public static function getVeiculoById($id){
         return self::getVeiculos('id = '.$id)->fetchObject(self::class);
     }
+
+    /**
+     * Método responsável por buscar um veículo através pelo ID
+     *
+     * 
+     */
+    public static function getVeiculoByIdPorEmpresa($id){
+        return self::getVeiculos('idEmpresa = '.$id)->fetchObject(self::class);
+    }
 }

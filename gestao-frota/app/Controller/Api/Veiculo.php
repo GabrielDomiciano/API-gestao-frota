@@ -15,7 +15,7 @@ class Veiculo extends Api{
 
         //QUANTIDADE TOTAL DE REGISTROS
         $quantidadeTotal = EntityVeiculo::getVeiculos(null, null, null, 'COUNT(*) as qtd')->fetchObject()->qtd;
-
+        
         //PÁGINA ATUAL
         $queryParams = $request->getQueryParams();
         $paginaAtual = $queryParams['page'] ?? 1;
@@ -114,7 +114,7 @@ class Veiculo extends Api{
         //VALIDA CAMPOS OBRIGATÓRIOS
         if (!isset($postVars['descricaoVeiculo']) or !isset($postVars['ano'])) {
             throw new \Exception("Os campos 'descrição' e 'ano' são obrigatórios", 400);
-        }
+        }      
 
         //CADASTRA NOVO VEICULO
         $obVeiculo = new EntityVeiculo;
@@ -127,7 +127,28 @@ class Veiculo extends Api{
         $obVeiculo->idFabricante = $postVars['idFabricante'];
         $obVeiculo->idEmpresa = $postVars['idEmpresa'];   
         $obVeiculo->idTipoMotor = $postVars['idTipoMotor'];
-        
+
+// -------------------------------------- -------------------------------------------------- -------------------------------------- --------
+        //VALIDA QUANTIDADE DE CAMINHÕES QUE PODEM SER CADASTRADOS
+        $pagamento = new Pagamento;
+        $validaPagamento = $pagamento::getPagamentoEmpresa($request,  $obVeiculo->idEmpresa);
+
+        if($validaPagamento['idPlano'] == 0){
+            //LIMITE É 15
+            //QUANTIDADE TOTAL DE REGISTROS
+            $quantidadeTotal = EntityVeiculo::getVeiculos('idEmpresa ='. $obVeiculo->idEmpresa, null, null, 'COUNT(*) as qtd')->fetchObject()->qtd;
+            if($quantidadeTotal > 15){
+                throw new \Exception("Foi atingido o limite de cadastros do Veículo, por favor altere seu plano para continuar", 400);
+            }          
+        } else
+        if($validaPagamento['idPlano'] == 1){
+            //LIMITE É 50
+            //QUANTIDADE TOTAL DE REGISTROS
+            $quantidadeTotal = EntityVeiculo::getVeiculos('idEmpresa ='. $obVeiculo->idEmpresa, null, null, 'COUNT(*) as qtd')->fetchObject()->qtd;
+            if($quantidadeTotal > 50){
+                throw new \Exception("Foi atingido o limite de cadastros do Veículo, por favor altere seu plano para o Premium para ter acesso ilimitado", 400);
+            }          
+        } 
        
         $obVeiculo->cadastrar();
 

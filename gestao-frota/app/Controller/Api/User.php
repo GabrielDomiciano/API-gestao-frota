@@ -132,14 +132,14 @@ class User extends Api{
 
         //MONTA O EMAIL PARA ENVIO
         $address = $obUser->email;
-        $subject = 'Alerta de localidade Volvo FH440';
-        $body = '<b> Olá '. $obUser->nome.' </b> <br><br> Seu caminhão Volvo FH440 acabou de chegar em São Paulo';
-        $attachment = 'upload/email/teste.txt';
+        $subject = 'RODE COM MENOS - Seja bem vindo';
+        $body = '<b> Olá '. $obUser->nome.' </b> <br><br> você acabou de se cadastrar em Rode com menos. Espero que goste. Bem vindo !!';
+        //$attachment = 'upload/email/teste.txt';
 
-        Email::setEmailAnexo($address, $subject, $body, $attachment);
+        Email::setEmail($address, $subject, $body);
         
         $telephone = $obUser->telefone;
-        $message = 'Olá ' . $obUser->nome . ' Seu caminhão Volvo FH440 acabou de chegar em São Paulo';
+        $message = 'Olá ' . $obUser->nome . ' você acabou de se cadastrar em Rode com menos. Espero que goste. Bem vindo !!';
         Whatsapp::setWhatsapp($telephone, $message);
 
         return [
