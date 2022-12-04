@@ -85,11 +85,6 @@ class TipoAlerta extends Api{
     public static function setNewAlerta($request){
         $postVars = $request->getPostVars();
 
-        //VALIDA CAMPOS OBRIGATÓRIOS
-        if (!isset($postVars['tipoEnvio'])) {
-            throw new \Exception("O campo 'tipoEnvio' é obrigatório", 400);
-        }
-
         //CADASTRA NOVO Alerta
         $obAlerta = new EntityAlerta;
         $obAlerta->descricaoAlerta = $postVars['descricaoAlerta'];
