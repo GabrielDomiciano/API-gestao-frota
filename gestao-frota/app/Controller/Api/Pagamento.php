@@ -98,9 +98,9 @@ class Pagamento extends Api{
 
         //BUSCA Pagamento
         $obPagamento = EntityPagamento::getPagamentoByIdEmpresa($id);
-
+       
         if (!$obPagamento instanceof EntityPagamento) {
-            throw new \Exception("A empresa ". $id. " Não foi encontrada", 404);
+           return 0;
         }
 
         return [
